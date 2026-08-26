@@ -1,0 +1,8 @@
+# XAMPP / PHP / System ignores
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.idea/
+.vscode/
+*.swp
