@@ -1,96 +1,151 @@
-# GradeSys Paz - Grading System Portal
+# GradeSys Paz - Faculty & Student Grading Portal
 
-A web-based Grading System built for **Faculty Teachers** and **Students** with role-based access control, automated grade calculations, and printable grade certificates and report cards.
-
----
-
-## 🌟 Key Features
-
-- **🧑‍🏫 Faculty Portal:**
-  - Dynamic Faculty Dashboard with student statistics, passing rate metrics, and top student rankings.
-  - Complete Student Directory with enrollment & profile management.
-  - Course Subject curriculum management.
-  - Master Grade Matrix with real-time dynamic grade calculation: `(Prelim × 30%) + (Midterm × 30%) + (Finals × 40%) = Final Grade`.
-  - Individual Official Certificate of Grades with printable format.
-
-- **🎓 Student Portal:**
-  - Secure student login showing strictly their own grades and enrolled courses.
-  - Term GWA (General Weighted Average) and Academic Standing computation.
-  - Official Term Grade Slip with `@media print` support for saving as PDF or physical printout.
-  - Self-service profile viewing and password update.
-
-- **🎨 Modern User Interface:**
-  - Custom Vanilla CSS design system with smooth glassmorphism, responsive sidebar, stat cards, and status badges.
-  - 1-Click Demo Login support for quick testing.
+A modern, full-featured Grade Management System built with **Laravel 12 (PHP 8.2+)**, **Blade Templates**, **Alpine.js**, and **Tailwind CSS v3**. Designed for educational institutions to provide dedicated, role-separated portals for Faculty Instructors and Enrolled Students.
 
 ---
 
-## 🚀 Installation & Setup (XAMPP)
+## 🚀 Tech Stack
 
-1. Clone or place this repository into your XAMPP `htdocs` directory:
-   ```text
-   C:/xampp/htdocs/GradeSysPaz/
-   ```
-
-2. Start **Apache** and **MySQL** in the XAMPP Control Panel.
-
-3. Open your browser and run the interactive setup wizard:
-   ```text
-   http://localhost/GradeSysPaz/setup.php
-   ```
-   Click **"Run Database Setup & Seed Data"** to automatically initialize the database schema and sample demo records.
-
-4. Access the system at:
-   ```text
-   http://localhost/GradeSysPaz/
-   ```
+- **Backend**: [Laravel 12](https://laravel.com/) & PHP 8.2+
+- **Frontend**: Blade Components, [Alpine.js 3.x](https://alpinejs.dev/), and [Tailwind CSS v3](https://tailwindcss.com/)
+- **Build Tool**: Vite & PostCSS
+- **Database**: MySQL / PostgreSQL (Production & Local) | SQLite in-memory (Automated Tests)
+- **Testing**: PHPUnit / Laravel Test Runner (100% automated test coverage)
 
 ---
 
-## 🔑 Default Demo Accounts
+## ✨ Features
 
-| Role | Username | Password | Access Details |
+### 🧑‍🏫 Faculty / Teacher Portal
+- **Interactive Analytics Dashboard**: Total student enrollment, active course subjects, department average grade, and passing rate.
+- **Students Directory & Management**:
+  - Full CRUD operations with instantaneous Alpine.js search filtering.
+  - Automatic account provisioning with secure bcrypt password hashing.
+  - Printable official **Certificate of Student Grades** with university header, GPA/GWA calculation, and signature lines.
+- **Course Subjects Catalog**:
+  - Create and manage course descriptions, credit units, semesters, and academic years.
+- **Master Grade Matrix**:
+  - Real-time live grade calculation powered by Alpine.js.
+  - Automated formula: `(Prelim × 30%) + (Midterm × 30%) + (Finals × 40%) = Final Grade`.
+  - Automatic status computation (`>= 75.00` = `Passed`, `< 75.00` = `Failed`).
+  - Subject and Student matrix filtering.
+  - Instructor feedback & notes per student course entry.
+  - Print-ready Grade Sheet layouts.
+
+### 🎓 Student Portal
+- **Secure Role-Isolated Access**: Students can only view their own respective grades and academic records.
+- **Academic Dashboard**:
+  - Term General Weighted Average (GWA) computation weighted by subject credit units.
+  - Overall Academic Standing evaluation (Dean's List / Good Standing / Academic Probation).
+  - Enrolled courses list and earned credits summary.
+- **Official Term Grade Slip**:
+  - Breakdown of Prelim, Midterm, Finals, Final Grades, and Instructor Remarks.
+  - Grading scale legend (1.00 to 5.00 standard scale).
+  - Clean `@media print` layout for saving as PDF or printing official slips.
+- **Profile & Security Settings**:
+  - View registered student details, ID number, and program section.
+  - Self-service password change form with validation.
+
+---
+
+## 🔑 Demo Login Accounts
+
+| Role | Username | Password | Notes |
 | :--- | :--- | :--- | :--- |
-| **Faculty (Teacher)** | `teacher` | `password123` | Full faculty access (Manage students, subjects, grades, reports) |
-| **Student 1** | `student1` | `password123` | Juan C. Dela Cruz (Student Portal) |
-| **Student 2** | `student2` | `password123` | Alyssa Jane Reyes (Student Portal - Dean's List) |
-| **Student 3** | `student3` | `password123` | Mark Anthony Santos (Student Portal) |
-| **Student 4** | `student4` | `password123` | Sophia Marie Mendoza (Student Portal) |
+| **Faculty / Teacher** | `teacher` | `password123` | Prof. Maria Santos (Full administrative & grading access) |
+| **Student** | `student1` | `password123` | Juan Dela Cruz (BSIT 1-A) |
+| **Student** | `student2` | `password123` | Alyssa Reyes (BSIT 1-A, Dean's List Honor) |
+| **Student** | `student3` | `password123` | Mark Anthony Bautista (BSIT 1-A) |
+| **Student** | `student4` | `password123` | Christine Joy Garcia (BSIT 1-A) |
+
+> 💡 *The login page includes 1-click demo account autofill buttons for immediate testing.*
 
 ---
 
-## 📁 Project Architecture
+## 📐 Grading Formula
 
-```text
-GradeSysPaz/
-├── config/
-│   └── database.php           # PDO database connection
-├── includes/
-│   ├── auth.php               # Session security, CSRF & RBAC guards
-│   ├── header.php             # Reusable sidebar & navigation
-│   └── footer.php             # Reusable layout footer & scripts
-├── assets/
-│   ├── css/
-│   │   └── style.css          # Design system & print stylesheet
-│   └── js/
-│       └── script.js          # Dynamic live calculator & UI interactions
-├── teacher/
-│   ├── dashboard.php          # Faculty metrics & feed
-│   ├── manage_students.php    # Student management (CRUD)
-│   ├── manage_subjects.php    # Subject curriculum management (CRUD)
-│   ├── manage_grades.php      # Master grade encoder & matrix
-│   └── student_report.php     # Printable student certificate of grades
-├── student/
-│   ├── dashboard.php          # Student dashboard & GWA overview
-│   ├── my_grades.php          # Official grade slip view
-│   └── profile.php            # Student profile & password change
-├── index.php                  # Portal login page
-├── logout.php                 # Session destroy handler
-├── schema.sql                 # MySQL schema definitions
-└── setup.php                  # Interactive web database installer
+The system automatically computes the student's term final grade and passing status using the standard collegiate evaluation standard:
+
+$$\text{Final Grade} = (\text{Prelim} \times 0.30) + (\text{Midterm} \times 0.30) + (\text{Finals} \times 0.40)$$
+
+$$\text{GWA} = \frac{\sum (\text{Final Grade} \times \text{Units})}{\sum \text{Units}}$$
+
+- **Passed**: $\text{Final Grade} \ge 75.00\%$
+- **Failed**: $\text{Final Grade} < 75.00\%$
+
+---
+
+## 🛠️ Installation & Setup Guide
+
+### 1. Requirements
+- PHP 8.2 or higher (with `pdo_mysql`, `pdo_sqlite`, `zip`, `mbstring`, `openssl` extensions enabled)
+- Composer 2.x
+- Node.js 18+ and npm
+- MySQL Server
+
+### 2. Clone Repository & Setup
+```bash
+git clone https://github.com/rech-axn/Grade_Sys_Paz.git
+cd Grade_Sys_Paz
+
+# Install PHP dependencies
+composer install
+
+# Install Node dependencies
+npm install
+
+# Copy environment config
+cp .env.example .env
+
+# Generate Application Key
+php artisan key:generate
 ```
+
+### 3. Database Configuration
+Configure your database credentials in `.env`:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=grade_sys_paz
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 4. Run Migrations & Seed Demo Data
+```bash
+php artisan migrate:fresh --seed
+```
+
+### 5. Build Assets & Start Server
+```bash
+# Build Tailwind CSS & Alpine assets
+npm run build
+
+# Start Laravel development server
+php artisan serve
+```
+
+Access the application in your browser at `http://localhost:8000`.
+
+---
+
+## 🧪 Automated Testing
+
+Automated feature and unit tests execute against an in-memory SQLite database (`:memory:`) configured in `phpunit.xml`:
+
+```bash
+php artisan test
+```
+
+Test coverage includes:
+- Authentication, role validation & unauthorized portal redirects.
+- Student & Subject CRUD operations.
+- Grade encoding, updating, and cascade calculations.
+- Automatic formula precision checks ($30\% / 30\% / 40\%$).
+- Student password modification.
 
 ---
 
 ## 📄 License
-Open source and available for educational purposes.
+This project is open-sourced under the [MIT License](LICENSE).
