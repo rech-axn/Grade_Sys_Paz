@@ -24,13 +24,13 @@ class GradeSystemTest extends TestCase
     public function test_teacher_can_login_and_redirect_to_dashboard(): void
     {
         $teacher = User::factory()->create([
-            'username' => 'teacher',
+            'email' => 'teacher@example.com',
             'role' => 'teacher',
             'password' => bcrypt('password123'),
         ]);
 
         $response = $this->post('/login', [
-            'username' => 'teacher',
+            'email' => 'teacher@example.com',
             'password' => 'password123',
         ]);
 
@@ -41,7 +41,7 @@ class GradeSystemTest extends TestCase
     public function test_student_can_login_and_redirect_to_dashboard(): void
     {
         $user = User::factory()->create([
-            'username' => 'student1',
+            'email' => 'student1@example.com',
             'role' => 'student',
             'password' => bcrypt('password123'),
         ]);
@@ -55,7 +55,7 @@ class GradeSystemTest extends TestCase
         ]);
 
         $response = $this->post('/login', [
-            'username' => 'student1',
+            'email' => 'student1@example.com',
             'password' => 'password123',
         ]);
 
