@@ -1,6 +1,6 @@
 <x-layouts.guest title="Sign In">
     <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-8 sm:p-10 border border-white/20"
-         x-data="{ username: '{{ old('username', $prefillUser ?? '') }}', password: '{{ $prefillUser ? 'password123' : '' }}' }">
+         x-data="{ email: '{{ old('email', $prefillUser ?? '') }}', password: '{{ $prefillUser ? 'password123' : '' }}' }">
         
         <!-- Header -->
         <div class="text-center mb-8">
@@ -24,10 +24,10 @@
             @csrf
 
             <div>
-                <label for="username" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Username</label>
-                <input type="text" id="username" name="username" x-model="username" required autofocus
+                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Email Address</label>
+                <input type="email" id="email" name="email" x-model="email" required autofocus
                        class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 text-slate-800 text-sm transition outline-none"
-                       placeholder="Enter your username">
+                       placeholder="Enter your email">
             </div>
 
             <div>

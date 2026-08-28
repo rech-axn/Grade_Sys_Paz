@@ -35,12 +35,12 @@
                     <label class="flex items-center justify-center gap-2 p-3 rounded-xl border cursor-pointer transition-all duration-200"
                            :class="role === 'student' ? 'border-indigo-600 bg-indigo-50 text-indigo-700 font-bold' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'">
                         <input type="radio" name="role" value="student" x-model="role" class="sr-only">
-                        <span>🎓 Student</span>
+                        <span>Student</span>
                     </label>
                     <label class="flex items-center justify-center gap-2 p-3 rounded-xl border cursor-pointer transition-all duration-200"
                            :class="role === 'teacher' ? 'border-indigo-600 bg-indigo-50 text-indigo-700 font-bold' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'">
                         <input type="radio" name="role" value="teacher" x-model="role" class="sr-only">
-                        <span>🧑‍🏫 Teacher</span>
+                        <span>Teacher</span>
                     </label>
                 </div>
             </div>
@@ -53,22 +53,12 @@
                        placeholder="Enter your full name">
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Username -->
-                <div>
-                    <label for="username" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Username</label>
-                    <input type="text" id="username" name="username" value="{{ old('username') }}" required
-                           class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 text-slate-800 text-sm transition outline-none"
-                           placeholder="Choose a username">
-                </div>
-
-                <!-- Email Address -->
-                <div>
-                    <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Email Address</label>
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" required
-                           class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 text-slate-800 text-sm transition outline-none"
-                           placeholder="Enter your email">
-                </div>
+            <!-- Email Address -->
+            <div>
+                <label for="email" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Email Address</label>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" required
+                       class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 text-slate-800 text-sm transition outline-none"
+                       placeholder="Enter your email">
             </div>
 
             <!-- Student ID Field (Alpine toggle) -->

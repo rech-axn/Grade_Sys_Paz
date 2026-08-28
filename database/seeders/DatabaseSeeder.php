@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
         // 1. Teacher Account
         $teacher = User::create([
             'name' => 'Prof. Maria Paz Santos',
-            'username' => 'teacher',
             'email' => 'teacher@gradesys.edu',
             'role' => 'teacher',
             'password' => $defaultPassword,
@@ -31,7 +30,6 @@ class DatabaseSeeder extends Seeder
         $studentsData = [
             [
                 'name' => 'Juan C. Dela Cruz',
-                'username' => 'student1',
                 'email' => 'juan.delacruz@gradesys.edu',
                 'student_id_number' => '2026-00101',
                 'course_section' => 'BS Information Technology 1-A',
@@ -42,7 +40,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Alyssa Jane Reyes',
-                'username' => 'student2',
                 'email' => 'alyssa.reyes@gradesys.edu',
                 'student_id_number' => '2026-00102',
                 'course_section' => 'BS Information Technology 1-A',
@@ -53,7 +50,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Mark Anthony Santos',
-                'username' => 'student3',
                 'email' => 'mark.santos@gradesys.edu',
                 'student_id_number' => '2026-00103',
                 'course_section' => 'BS Information Technology 1-B',
@@ -64,7 +60,6 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Sophia Marie Mendoza',
-                'username' => 'student4',
                 'email' => 'sophia.mendoza@gradesys.edu',
                 'student_id_number' => '2026-00104',
                 'course_section' => 'BS Information Technology 1-B',
@@ -79,7 +74,6 @@ class DatabaseSeeder extends Seeder
         foreach ($studentsData as $data) {
             $user = User::create([
                 'name' => $data['name'],
-                'username' => $data['username'],
                 'email' => $data['email'],
                 'role' => 'student',
                 'password' => $defaultPassword,
