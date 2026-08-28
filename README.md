@@ -107,7 +107,7 @@ Configure your database credentials in `.env`:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=grade_sys_paz
+DB_DATABASE=grade_sys
 DB_USERNAME=root
 DB_PASSWORD=
 ```
