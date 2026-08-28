@@ -50,13 +50,13 @@ A modern, full-featured Grade Management System built with **Laravel 12 (PHP 8.2
 
 ## 🔑 Demo Login Accounts
 
-| Role | Username | Password | Notes |
+| Role | Email | Password | Notes |
 | :--- | :--- | :--- | :--- |
-| **Faculty / Teacher** | `teacher` | `password123` | Prof. Maria Santos (Full administrative & grading access) |
-| **Student** | `student1` | `password123` | Juan Dela Cruz (BSIT 1-A) |
-| **Student** | `student2` | `password123` | Alyssa Reyes (BSIT 1-A, Dean's List Honor) |
-| **Student** | `student3` | `password123` | Mark Anthony Bautista (BSIT 1-A) |
-| **Student** | `student4` | `password123` | Christine Joy Garcia (BSIT 1-A) |
+| **Faculty / Teacher** | `teacher@gradesys.edu` | `password123` | Prof. Maria Santos (Full administrative & grading access) |
+| **Student** | `juan.delacruz@gradesys.edu` | `password123` | Juan Dela Cruz (BSIT 1-A) |
+| **Student** | `alyssa.reyes@gradesys.edu` | `password123` | Alyssa Reyes (BSIT 1-A, Dean's List Honor) |
+| **Student** | `mark.santos@gradesys.edu` | `password123` | Mark Anthony Bautista (BSIT 1-A) |
+| **Student** | `sophia.mendoza@gradesys.edu` | `password123` | Christine Joy Garcia (BSIT 1-A) |
 
 > 💡 *The login page includes 1-click demo account autofill buttons for immediate testing.*
 
