@@ -7,7 +7,7 @@
             <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-gradient-to-tr from-indigo-600 to-violet-600 flex items-center justify-center font-black text-white text-2xl shadow-xl shadow-indigo-500/30">
                 GS
             </div>
-            <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">GradeSys Paz</h2>
+            <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">GradeSys</h2>
             <p class="text-xs text-slate-500 mt-1 font-medium">Faculty & Student Grading Portal (Laravel 12)</p>
         </div>
 
@@ -49,47 +49,11 @@
             </button>
         </form>
 
-        <!-- 1-Click Demo Accounts -->
-        <div class="mt-8 pt-6 border-t border-slate-100">
-            <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 text-center mb-3">1-Click Demo Accounts:</span>
-            
-            <div class="space-y-2">
-                <button type="button" @click="username = 'teacher'; password = 'password123'"
-                        class="w-full flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-indigo-50/70 border border-slate-200/80 hover:border-indigo-200 text-left transition group">
-                    <div class="flex items-center gap-2.5">
-                        <span class="text-base">🧑‍🏫</span>
-                        <div>
-                            <div class="text-xs font-bold text-slate-800 group-hover:text-indigo-700">Teacher: Prof. Maria Santos</div>
-                            <div class="text-[10px] text-slate-400 font-mono">user: teacher</div>
-                        </div>
-                    </div>
-                    <span class="text-[11px] font-semibold text-indigo-600 bg-white px-2 py-0.5 rounded-md border border-slate-200 shadow-2xs">Fill</span>
-                </button>
-
-                <button type="button" @click="username = 'student1'; password = 'password123'"
-                        class="w-full flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-indigo-50/70 border border-slate-200/80 hover:border-indigo-200 text-left transition group">
-                    <div class="flex items-center gap-2.5">
-                        <span class="text-base">🎓</span>
-                        <div>
-                            <div class="text-xs font-bold text-slate-800 group-hover:text-indigo-700">Student: Juan Dela Cruz</div>
-                            <div class="text-[10px] text-slate-400 font-mono">user: student1</div>
-                        </div>
-                    </div>
-                    <span class="text-[11px] font-semibold text-indigo-600 bg-white px-2 py-0.5 rounded-md border border-slate-200 shadow-2xs">Fill</span>
-                </button>
-
-                <button type="button" @click="username = 'student2'; password = 'password123'"
-                        class="w-full flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-indigo-50/70 border border-slate-200/80 hover:border-indigo-200 text-left transition group">
-                    <div class="flex items-center gap-2.5">
-                        <span class="text-base">🎓</span>
-                        <div>
-                            <div class="text-xs font-bold text-slate-800 group-hover:text-indigo-700">Student: Alyssa Reyes (Dean's List)</div>
-                            <div class="text-[10px] text-slate-400 font-mono">user: student2</div>
-                        </div>
-                    </div>
-                    <span class="text-[11px] font-semibold text-indigo-600 bg-white px-2 py-0.5 rounded-md border border-slate-200 shadow-2xs">Fill</span>
-                </button>
-            </div>
+        <div class="mt-6 text-center text-sm">
+            <p class="text-slate-600">
+                Don't have an account? 
+                <a href="{{ route('register') }}" class="font-bold text-indigo-600 hover:text-indigo-500 transition">Register here</a>
+            </p>
         </div>
     </div>
 </x-layouts.guest>

@@ -18,7 +18,7 @@ class GradeSystemTest extends TestCase
     {
         $response = $this->get('/login');
         $response->assertStatus(200);
-        $response->assertSee('GradeSys Paz');
+        $response->assertSee('GradeSys');
     }
 
     public function test_teacher_can_login_and_redirect_to_dashboard(): void

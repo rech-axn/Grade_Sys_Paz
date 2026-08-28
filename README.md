@@ -1,4 +1,4 @@
-# GradeSys Paz - Faculty & Student Grading Portal
+# GradeSys - Faculty & Student Grading Portal
 
 A modern, full-featured Grade Management System built with **Laravel 12 (PHP 8.2+)**, **Blade Templates**, **Alpine.js**, and **Tailwind CSS v3**. Designed for educational institutions to provide dedicated, role-separated portals for Faculty Instructors and Enrolled Students.
 

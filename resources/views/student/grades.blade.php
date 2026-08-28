@@ -117,7 +117,7 @@
         </div>
 
         <div class="text-center text-[11px] text-slate-400 pt-8 mt-8 border-t border-slate-200">
-            Generated electronically via GradeSys Paz Portal on {{ date('F j, Y, g:i a') }}.
+            Generated electronically via GradeSys Portal on {{ date('F j, Y, g:i a') }}.
         </div>
     </div>
 </x-layouts.app>

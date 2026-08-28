@@ -49,4 +49,50 @@ class AuthController extends Controller
 
         return redirect()->route('login')->with('info', 'You have been signed out successfully.');
     }
+
+    public function showRegister()
+    {
+        if (Auth::check()) {
+            return Auth::user()->isTeacher() 
+                ? redirect()->route('teacher.dashboard') 
+                : redirect()->route('student.dashboard');
+        }
+
+        return view('auth.register');
+    }
+
+    public function register(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role' => ['required', 'in:teacher,student'],
+            'student_id_number' => ['required_if:role,student', 'nullable', 'string', 'unique:students,student_id_number'],
+        ]);
+
+        $user = \App\Models\User::create([
+            'name' => $validated['name'],
+            'username' => $validated['username'],
+            'email' => $validated['email'],
+            'password' => \Illuminate\Support\Facades\Hash::make($validated['password']),
+            'role' => $validated['role'],
+        ]);
+
+        if ($validated['role'] === 'student') {
+            $user->student()->create([
+                'student_id_number' => $validated['student_id_number'],
+                'course_section' => 'BSIT 1-A', // Default or could be added to form
+                'year_level' => '1st Year',
+                'gender' => 'Male',
+            ]);
+        }
+
+        Auth::login($user);
+
+        return $user->isTeacher()
+            ? redirect()->route('teacher.dashboard')->with('success', 'Registration successful! Welcome, ' . $user->name . '.')
+            : redirect()->route('student.dashboard')->with('success', 'Registration successful! Welcome, ' . $user->name . '.');
+    }
 }
